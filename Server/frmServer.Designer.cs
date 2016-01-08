@@ -70,6 +70,7 @@
             this.lblFramesNoAlgo = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
+            this.cbAlgorithm = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFrame)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDelay)).BeginInit();
             this.SuspendLayout();
@@ -145,7 +146,7 @@
             this.cbxScreens.FormattingEnabled = true;
             this.cbxScreens.Location = new System.Drawing.Point(377, 17);
             this.cbxScreens.Name = "cbxScreens";
-            this.cbxScreens.Size = new System.Drawing.Size(151, 21);
+            this.cbxScreens.Size = new System.Drawing.Size(103, 21);
             this.cbxScreens.TabIndex = 7;
             this.cbxScreens.Text = " ( . . Screen . . )";
             this.cbxScreens.SelectedIndexChanged += new System.EventHandler(this.cbxScreens_SelectedIndexChanged);
@@ -153,7 +154,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(294, 68);
+            this.label4.Location = new System.Drawing.Point(294, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 8;
@@ -164,7 +165,7 @@
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.ForeColor = System.Drawing.Color.Red;
-            this.lblStatus.Location = new System.Drawing.Point(374, 66);
+            this.lblStatus.Location = new System.Drawing.Point(385, 47);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(95, 16);
             this.lblStatus.TabIndex = 9;
@@ -256,18 +257,18 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(284, 136);
+            this.label12.Location = new System.Drawing.Point(286, 136);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(253, 13);
+            this.label12.Size = new System.Drawing.Size(301, 13);
             this.label12.TabIndex = 19;
-            this.label12.Text = "_________________________________________";
+            this.label12.Text = "_________________________________________________";
             // 
             // pcbFrame
             // 
             this.pcbFrame.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcbFrame.Location = new System.Drawing.Point(297, 152);
+            this.pcbFrame.Location = new System.Drawing.Point(297, 153);
             this.pcbFrame.Name = "pcbFrame";
-            this.pcbFrame.Size = new System.Drawing.Size(231, 144);
+            this.pcbFrame.Size = new System.Drawing.Size(282, 166);
             this.pcbFrame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbFrame.TabIndex = 20;
             this.pcbFrame.TabStop = false;
@@ -285,12 +286,12 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(2, 364);
+            this.label14.Location = new System.Drawing.Point(4, 364);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(529, 13);
+            this.label14.Size = new System.Drawing.Size(583, 13);
             this.label14.TabIndex = 22;
             this.label14.Text = "_________________________________________________________________________________" +
-    "______";
+    "_______________";
             // 
             // lblCompRatio
             // 
@@ -312,12 +313,12 @@
             // 
             // txtLogs
             // 
-            this.txtLogs.Location = new System.Drawing.Point(13, 380);
+            this.txtLogs.Location = new System.Drawing.Point(13, 381);
             this.txtLogs.Multiline = true;
             this.txtLogs.Name = "txtLogs";
             this.txtLogs.ReadOnly = true;
             this.txtLogs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLogs.Size = new System.Drawing.Size(513, 164);
+            this.txtLogs.Size = new System.Drawing.Size(566, 164);
             this.txtLogs.TabIndex = 25;
             // 
             // label15
@@ -341,10 +342,10 @@
             // tbDelay
             // 
             this.tbDelay.LargeChange = 100;
-            this.tbDelay.Location = new System.Drawing.Point(369, 96);
+            this.tbDelay.Location = new System.Drawing.Point(377, 66);
             this.tbDelay.Maximum = 6000;
             this.tbDelay.Name = "tbDelay";
-            this.tbDelay.Size = new System.Drawing.Size(164, 45);
+            this.tbDelay.Size = new System.Drawing.Size(202, 45);
             this.tbDelay.TabIndex = 28;
             this.tbDelay.TickFrequency = 250;
             this.tbDelay.ValueChanged += new System.EventHandler(this.tbDelay_ValueChanged);
@@ -352,7 +353,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(294, 96);
+            this.label5.Location = new System.Drawing.Point(294, 77);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 29;
@@ -361,7 +362,7 @@
             // lblDelay
             // 
             this.lblDelay.AutoSize = true;
-            this.lblDelay.Location = new System.Drawing.Point(350, 96);
+            this.lblDelay.Location = new System.Drawing.Point(350, 77);
             this.lblDelay.Name = "lblDelay";
             this.lblDelay.Size = new System.Drawing.Size(13, 13);
             this.lblDelay.TabIndex = 30;
@@ -415,7 +416,7 @@
             // cbMouse
             // 
             this.cbMouse.AutoSize = true;
-            this.cbMouse.Location = new System.Drawing.Point(377, 43);
+            this.cbMouse.Location = new System.Drawing.Point(486, 19);
             this.cbMouse.Name = "cbMouse";
             this.cbMouse.Size = new System.Drawing.Size(98, 17);
             this.cbMouse.TabIndex = 36;
@@ -425,7 +426,7 @@
             // lblPercentOfIm
             // 
             this.lblPercentOfIm.AutoSize = true;
-            this.lblPercentOfIm.Location = new System.Drawing.Point(400, 305);
+            this.lblPercentOfIm.Location = new System.Drawing.Point(411, 324);
             this.lblPercentOfIm.Name = "lblPercentOfIm";
             this.lblPercentOfIm.Size = new System.Drawing.Size(21, 13);
             this.lblPercentOfIm.TabIndex = 38;
@@ -434,7 +435,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(301, 305);
+            this.label21.Location = new System.Drawing.Point(305, 324);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(93, 13);
             this.label21.TabIndex = 37;
@@ -468,11 +469,27 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // cbAlgorithm
+            // 
+            this.cbAlgorithm.AutoSize = true;
+            this.cbAlgorithm.Checked = true;
+            this.cbAlgorithm.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbAlgorithm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbAlgorithm.ForeColor = System.Drawing.Color.Black;
+            this.cbAlgorithm.Location = new System.Drawing.Point(445, 104);
+            this.cbAlgorithm.Name = "cbAlgorithm";
+            this.cbAlgorithm.Size = new System.Drawing.Size(134, 20);
+            this.cbAlgorithm.TabIndex = 42;
+            this.cbAlgorithm.Text = "Activate Algorithm";
+            this.cbAlgorithm.UseVisualStyleBackColor = true;
+            this.cbAlgorithm.CheckedChanged += new System.EventHandler(this.cbAlgorithm_CheckedChanged);
+            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 556);
+            this.ClientSize = new System.Drawing.Size(591, 556);
+            this.Controls.Add(this.cbAlgorithm);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.lblFramesNoAlgo);
             this.Controls.Add(this.label22);
@@ -517,7 +534,6 @@
             this.Controls.Add(this.label20);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(556, 595);
             this.Name = "frmServer";
             this.Text = "Server : RemotePresentationOverNetwork";
             this.Load += new System.EventHandler(this.frmServer_Load);
@@ -572,6 +588,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label lblFramesNoAlgo;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.CheckBox cbAlgorithm;
     }
 }
 

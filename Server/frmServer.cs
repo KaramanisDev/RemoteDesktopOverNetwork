@@ -104,36 +104,37 @@ namespace Server
 
         private void UpdateStats(bool nf, float a,float b,long ms,float c)
         {
-            int restPacketSize = 32;
-            a += restPacketSize;
-            b += restPacketSize;
+            int restPacketSize = 26;
+
+            if (nf)
+            {
+                frames++;
+                a += restPacketSize;
+                b += restPacketSize;
+            }
+
+            framesnoalgo++;
             c += restPacketSize;
 
             kbsentcomp += a / 1024;
             kbsentuncomp += b / 1024;
             secondstook += (float)ms / 1000f;
-            compratio = ((kbsentuncomp - kbsentcomp) / kbsentuncomp) *100f;
+            compratio = ((kbsentuncomp - kbsentcomp) / kbsentuncomp) * 100f;
 
             withoutalgo += c / 1024;
             effiratio = 100 - (kbsentcomp / withoutalgo) * 100f;
-
-            if (nf)
+            
+            this.safeInvoke((t =>
             {
-                frames++;
-            }
-            framesnoalgo++;
-
-            this.Invoke((MethodInvoker) delegate
-            {
-                lblFrames.Text = frames.ToString();
-                lblComp.Text = kbsentcomp.ToString();
-                lblUncomp.Text = kbsentuncomp.ToString();
-                lblSeconds.Text = secondstook.ToString();
-                lblCompRatio.Text = compratio + "%";
-                lblEfficRatio.Text = effiratio + "%";
-                lblNoAlgo.Text = withoutalgo.ToString();
-                lblFramesNoAlgo.Text = framesnoalgo.ToString();
-            });
+                t.lblFrames.Text = frames.ToString();
+                t.lblComp.Text = kbsentcomp.ToString();
+                t.lblUncomp.Text = kbsentuncomp.ToString();
+                t.lblSeconds.Text = secondstook.ToString();
+                t.lblCompRatio.Text = compratio + "%";
+                t.lblEfficRatio.Text = effiratio + "%";
+                t.lblNoAlgo.Text = withoutalgo.ToString();
+                t.lblFramesNoAlgo.Text = framesnoalgo.ToString();
+            }));
         }
 
         private void BeginAccept_Callback(IAsyncResult ar)
@@ -149,61 +150,77 @@ namespace Server
                     ClientConnect(true);
                     Stopwatch timeProcessed = Stopwatch.StartNew();
                     Rectangle bounds = Rectangle.Empty;
-                    Bitmap NewIM = ScreenCapture.CaptureSelectedScreen(desktopSelected, cbMouse.Checked);
-                    float newIMLength = NewIM.ToByteArray(ImageFormat.Jpeg).Length;
-                    Bitmap imageChanged = SCD.Check(NewIM, ref bounds);
 
                     Data DT = new Data();
 
-                    if (bounds != Rectangle.Empty)
+                    Bitmap NewIM = ScreenCapture.CaptureSelectedScreen(desktopSelected, cbMouse.Checked);
+                    byte[] newIMdata = NewIM.ToByteArray(ImageFormat.Jpeg);
+
+                    if (cbAlgorithm.Checked)
                     {
-                        pcbFrame.Image = (Bitmap) imageChanged.Clone();
-                        this.Invoke((MethodInvoker)delegate
-                        {
-                            lblPercentOfIm.Text = SCD.PercentOfImage + "%";
-                        });
 
-                        byte[] imageDATA = imageChanged.ToByteArray(ImageFormat.Jpeg);
-                        byte[] compImage = LZ4mm.LZ4Codec.Encode32(imageDATA, 0, imageDATA.Length);
+                        Bitmap imageChanged = SCD.Check(NewIM, ref bounds);
 
-                        
-                        DT.comp = true;
-                        if (compImage.Length > imageDATA.Length)
+                        if (bounds != Rectangle.Empty)
                         {
-                            DT.comp = false;
-                            compImage = imageDATA;
+                            pcbFrame.Image = (Bitmap) imageChanged.Clone();
+                            this.Invoke((MethodInvoker) delegate
+                            {
+                                lblPercentOfIm.Text = SCD.PercentOfImage + "%";
+                            });
+
+                            byte[] imageDATA = imageChanged.ToByteArray(ImageFormat.Jpeg);
+                            byte[] compImage = LZ4mm.LZ4Codec.Encode32(imageDATA, 0, imageDATA.Length);
+
+                            DT.comp = true;
+                            if (compImage.Length > imageDATA.Length)
+                            {
+                                DT.comp = false;
+                                compImage = imageDATA;
+                            }
+
+                            DT.type = 1;
+                            DT.dataSize = imageDATA.Length;
+                            DT.dataBytes = compImage;
+                            DT.bx = bounds.X;
+                            DT.by = bounds.Y;
+                            DT.bwidth = bounds.Width;
+                            DT.bheight = bounds.Height;
+
+                            UpdateStats(true, (float) compImage.Length, (float) imageDATA.Length,
+                                timeProcessed.ElapsedMilliseconds, newIMdata.Length);
+                            Log("Screen Sent Size Uncomp: " + (imageDATA.Length/1024) + "KB Comp: " +
+                                (compImage.Length/1024) + " KB MS: " +
+                                timeProcessed.ElapsedMilliseconds + " Rate: " +
+                                (((float) imageDATA.Length - (float) compImage.Length)/(float) imageDATA.Length)*100f +
+                                "%");
                         }
-
-                        DT.type = 1;
-                        DT.dataSize = imageDATA.Length;
-                        DT.dataBytes = compImage;
-                        DT.bx = bounds.X;
-                        DT.by = bounds.Y;
-                        DT.bwidth = bounds.Width;
-                        DT.bheight = bounds.Height;
-
-                        byte[] Packet = DT.Serialize();
-                        byte[] PacketSize = BitConverter.GetBytes(Packet.Length);
-
-                        withClient.Send(PacketSize);
-                        withClient.Send(Packet);
-
-                        UpdateStats(true,(float) compImage.Length, (float) imageDATA.Length,
-                            timeProcessed.ElapsedMilliseconds,newIMLength);
-                        Log("Screen Sent Size Uncomp: " + (imageDATA.Length/1024) + "KB Comp: " + (compImage.Length/1024) + " KB MS: " +
-                                         timeProcessed.ElapsedMilliseconds + " Rate: " +
-                                         (((float)imageDATA.Length - (float)compImage.Length) / (float)imageDATA.Length) * 100f + "%");
+                        else
+                        {
+                            SCD.Reset();
+                            UpdateStats(false, 0, 0, 0, newIMdata.Length);
+                            Log("No Change Detected No Screen Sent");
+                        }
                     }
                     else
                     {
-                        UpdateStats(false,0,0,0,newIMLength);
-                        Log("No Change Detected No Screen Sent");
+                        SCD.Reset();
+
+                        DT.type = 2;
+                        DT.dataSize = newIMdata.Length;
+                        DT.dataBytes = newIMdata;
+
+                        UpdateStats(false, 0, 0, 0, newIMdata.Length);
+                        Log("Full Screen Sent Size: " + (newIMdata.Length/1024) + " KB.");
                     }
 
-                    timeProcessed.Stop();
+                    byte[] Packet = DT.Serialize();
+                    byte[] PacketSize = BitConverter.GetBytes(Packet.Length);
 
-                    //imageChanged.Dispose();
-                    //NewIM.Dispose();
+                    withClient.Send(PacketSize);
+                    withClient.Send(Packet);
+
+                    timeProcessed.Stop();
                 }
             }
             catch (Exception ex)
@@ -217,11 +234,11 @@ namespace Server
 
         private void Log(string text)
         {
-            txtLogs.Invoke((MethodInvoker) delegate
+            txtLogs.safeInvoke(t =>
             {
-                txtLogs.Text += text + Environment.NewLine;
-                txtLogs.SelectionStart = txtLogs.TextLength;
-                txtLogs.ScrollToCaret();
+                t.Text += text + Environment.NewLine;
+                t.SelectionStart = txtLogs.TextLength;
+                t.ScrollToCaret();
             });
         }
 
@@ -287,6 +304,18 @@ namespace Server
             lblEfficRatio.Text = effiratio + "%";
             lblNoAlgo.Text = withoutalgo.ToString();
             lblFramesNoAlgo.Text = framesnoalgo.ToString();
+        }
+
+        private void cbAlgorithm_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbAlgorithm.Checked)
+            {
+                Log("Screen Change Detection Algorithm Activated !");
+            }
+            else
+            {
+                Log("Screen Change Detection Algorithm Deactivated.");
+            }
         }
     }
 }

@@ -26,6 +26,8 @@ namespace Client
 
         private void Connect(bool status)
         {
+            firstImage = false;
+
             btnConnect.Enabled = !status;
             btnDisconnect.Enabled = status;
             txtPort.Enabled = !status;
@@ -74,28 +76,35 @@ namespace Client
                         Data DTU = Data.Desserialize(Payload);
                         if (DTU.type != 0)
                         {
-                            Rectangle bounds = new Rectangle(DTU.bx, DTU.by, DTU.bwidth, DTU.bheight);
-                            Image restoreIMG;
+                            if (DTU.type == 1)
+                            {
+                                Rectangle bounds = new Rectangle(DTU.bx, DTU.by, DTU.bwidth, DTU.bheight);
+                                Image restoreIMG;
 
-                            if (DTU.comp)
-                            {
-                                restoreIMG =
-                                    LZ4mm.LZ4Codec.Decode32(DTU.dataBytes, 0, DTU.dataBytes.Length, DTU.dataSize)
-                                        .toImage();
-                            }
-                            else
-                            {
-                                restoreIMG = DTU.dataBytes.toImage();
-                            }
+                                if (DTU.comp)
+                                {
+                                    restoreIMG =
+                                        LZ4mm.LZ4Codec.Decode32(DTU.dataBytes, 0, DTU.dataBytes.Length, DTU.dataSize)
+                                            .toBitmap();
+                                }
+                                else
+                                {
+                                    restoreIMG = (Bitmap)DTU.dataBytes.toBitmap();
+                                }
 
-                            if (!firstImage)
-                            {
-                                oldImage = (Bitmap) restoreIMG;
-                                firstImage = true;
+                                if (!firstImage)
+                                {
+                                    oldImage = (Bitmap) restoreIMG;
+                                    firstImage = true;
+                                }
+                                else
+                                {
+                                    Utils.UpdateScreen(ref oldImage, restoreIMG, bounds);
+                                }
                             }
-                            else
+                            else if (DTU.type == 2)
                             {
-                                Utils.UpdateScreen(ref oldImage, restoreIMG, bounds);
+                                oldImage = (Bitmap)DTU.dataBytes.toBitmap();
                             }
 
                             this.pictureBox1.Image = oldImage;
