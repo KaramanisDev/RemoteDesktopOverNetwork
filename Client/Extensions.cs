@@ -31,24 +31,37 @@ namespace RPON.Extensions
 
     public static class InvokeExtension
     {
-        public static TResult safeInvoke<T, TResult>(this T isi, Func<T, TResult> callFunction)
+        public static TResult SafeInvoke<T, TResult>(this T isi, Func<T, TResult> callFunction)
             where T : ISynchronizeInvoke
         {
-            if (isi.InvokeRequired)
+            try
             {
-                IAsyncResult result = isi.BeginInvoke(callFunction, new object[] {isi});
-                object endResult = isi.EndInvoke(result);
-                return (TResult) endResult;
+                if (isi.InvokeRequired)
+                {
+                    IAsyncResult result = isi.BeginInvoke(callFunction, new object[] {isi});
+                    object endResult = isi.EndInvoke(result);
+                    return (TResult) endResult;
+                }
+                else
+                {
+                    return callFunction(isi);
+                }
             }
-            else
+            catch (Exception)
+            {
                 return callFunction(isi);
+            }
         }
 
-        public static void safeInvoke<T>(this T isi, Action<T> callFunction) where T : ISynchronizeInvoke
+        public static void SafeInvoke<T>(this T isi, Action<T> callFunction) where T : ISynchronizeInvoke
         {
-            if (isi.InvokeRequired) isi.BeginInvoke(callFunction, new object[] {isi});
-            else
-                callFunction(isi);
+            try
+            {
+                if (isi.InvokeRequired) isi.BeginInvoke(callFunction, new object[] {isi});
+                else
+                    callFunction(isi);
+            }
+            catch (Exception) { }
         }
     }
 

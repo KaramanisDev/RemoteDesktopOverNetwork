@@ -38,7 +38,6 @@
             this.cbxScreens = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblFrames = new System.Windows.Forms.Label();
@@ -46,10 +45,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblUncomp = new System.Windows.Forms.Label();
             this.lblComp = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.pcbFrame = new System.Windows.Forms.PictureBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.lblCompRatio = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -71,6 +68,10 @@
             this.label22 = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.cbAlgorithm = new System.Windows.Forms.CheckBox();
+            this.cbStats = new System.Windows.Forms.CheckBox();
+            this.cbLogs = new System.Windows.Forms.CheckBox();
+            this.cbLastFrame = new System.Windows.Forms.CheckBox();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFrame)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDelay)).BeginInit();
             this.SuspendLayout();
@@ -171,16 +172,6 @@
             this.lblStatus.TabIndex = 9;
             this.lblStatus.Text = "Disconected";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(13, 126);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 20);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Statistics";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -244,16 +235,6 @@
             this.lblComp.TabIndex = 17;
             this.lblComp.Text = "0";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(293, 126);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(128, 20);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Last Frame Sent";
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -272,16 +253,6 @@
             this.pcbFrame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbFrame.TabIndex = 20;
             this.pcbFrame.TabStop = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(11, 354);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(97, 20);
-            this.label13.TabIndex = 21;
-            this.label13.Text = "Latest Logs:";
             // 
             // label14
             // 
@@ -426,7 +397,7 @@
             // lblPercentOfIm
             // 
             this.lblPercentOfIm.AutoSize = true;
-            this.lblPercentOfIm.Location = new System.Drawing.Point(411, 324);
+            this.lblPercentOfIm.Location = new System.Drawing.Point(404, 324);
             this.lblPercentOfIm.Name = "lblPercentOfIm";
             this.lblPercentOfIm.Size = new System.Drawing.Size(21, 13);
             this.lblPercentOfIm.TabIndex = 38;
@@ -484,11 +455,67 @@
             this.cbAlgorithm.UseVisualStyleBackColor = true;
             this.cbAlgorithm.CheckedChanged += new System.EventHandler(this.cbAlgorithm_CheckedChanged);
             // 
+            // cbStats
+            // 
+            this.cbStats.AutoSize = true;
+            this.cbStats.BackColor = System.Drawing.SystemColors.Control;
+            this.cbStats.Checked = true;
+            this.cbStats.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbStats.Location = new System.Drawing.Point(7, 124);
+            this.cbStats.Name = "cbStats";
+            this.cbStats.Size = new System.Drawing.Size(97, 24);
+            this.cbStats.TabIndex = 43;
+            this.cbStats.Text = "Statistics:";
+            this.cbStats.UseVisualStyleBackColor = false;
+            // 
+            // cbLogs
+            // 
+            this.cbLogs.AutoSize = true;
+            this.cbLogs.BackColor = System.Drawing.SystemColors.Control;
+            this.cbLogs.Checked = true;
+            this.cbLogs.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbLogs.Location = new System.Drawing.Point(7, 352);
+            this.cbLogs.Name = "cbLogs";
+            this.cbLogs.Size = new System.Drawing.Size(116, 24);
+            this.cbLogs.TabIndex = 44;
+            this.cbLogs.Text = "Latest Logs:";
+            this.cbLogs.UseVisualStyleBackColor = false;
+            // 
+            // cbLastFrame
+            // 
+            this.cbLastFrame.AutoSize = true;
+            this.cbLastFrame.BackColor = System.Drawing.SystemColors.Control;
+            this.cbLastFrame.Checked = true;
+            this.cbLastFrame.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbLastFrame.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbLastFrame.Location = new System.Drawing.Point(289, 124);
+            this.cbLastFrame.Name = "cbLastFrame";
+            this.cbLastFrame.Size = new System.Drawing.Size(147, 24);
+            this.cbLastFrame.TabIndex = 45;
+            this.cbLastFrame.Text = "Last Frame Sent";
+            this.cbLastFrame.UseVisualStyleBackColor = false;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(524, 352);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(55, 22);
+            this.btnClear.TabIndex = 46;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 556);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.cbLastFrame);
+            this.Controls.Add(this.cbLogs);
+            this.Controls.Add(this.cbStats);
             this.Controls.Add(this.cbAlgorithm);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.lblFramesNoAlgo);
@@ -507,10 +534,8 @@
             this.Controls.Add(this.txtLogs);
             this.Controls.Add(this.lblCompRatio);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.pcbFrame);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.lblComp);
             this.Controls.Add(this.lblUncomp);
@@ -518,7 +543,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblFrames);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbxScreens);
@@ -556,7 +580,6 @@
         private System.Windows.Forms.ComboBox cbxScreens;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblFrames;
@@ -564,10 +587,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblUncomp;
         private System.Windows.Forms.Label lblComp;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pcbFrame;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblCompRatio;
         private System.Windows.Forms.Label label16;
@@ -589,6 +610,10 @@
         private System.Windows.Forms.Label lblFramesNoAlgo;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.CheckBox cbAlgorithm;
+        private System.Windows.Forms.CheckBox cbStats;
+        private System.Windows.Forms.CheckBox cbLogs;
+        private System.Windows.Forms.CheckBox cbLastFrame;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 

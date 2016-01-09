@@ -104,37 +104,68 @@ namespace Server
 
         private void UpdateStats(bool nf, float a,float b,long ms,float c)
         {
-            int restPacketSize = 26;
-
-            if (nf)
+            if (cbStats.Checked)
             {
-                frames++;
-                a += restPacketSize;
-                b += restPacketSize;
+                int restPacketSize = 26;
+
+                if (nf)
+                {
+                    frames++;
+                    a += restPacketSize;
+                    b += restPacketSize;
+                }
+
+                framesnoalgo++;
+                c += restPacketSize;
+
+                kbsentcomp += a/1024;
+                kbsentuncomp += b/1024;
+                secondstook += (float) ms/1000f;
+                compratio = ((kbsentuncomp - kbsentcomp)/kbsentuncomp)*100f;
+
+                withoutalgo += c/1024;
+                effiratio = 100 - (kbsentcomp/withoutalgo)*100f;
+
+                lblFrames.SafeInvoke(blFrames =>
+                {
+                    lblFrames.Text = frames.ToString();
+                });
+
+                lblComp.SafeInvoke(lblComp =>
+                {
+                    lblComp.Text = kbsentcomp.ToString();
+                });
+
+                lblUncomp.SafeInvoke(lblUncomp =>
+                {
+                    lblUncomp.Text = kbsentuncomp.ToString();
+                });
+
+                lblSeconds.SafeInvoke(lblSeconds =>
+                {
+                    lblSeconds.Text = secondstook.ToString();
+                });
+
+                lblCompRatio.SafeInvoke(lblCompRatio =>
+                {
+                    lblCompRatio.Text = compratio + "%";
+                });
+
+                lblEfficRatio.SafeInvoke(lblEfficRatio =>
+                {
+                    lblEfficRatio.Text = effiratio + "%";
+                });
+
+                lblNoAlgo.SafeInvoke(lblNoAlgo =>
+                {
+                    lblNoAlgo.Text = withoutalgo.ToString();
+                });
+
+                lblFramesNoAlgo.SafeInvoke(lblFramesNoAlgo =>
+                {
+                    lblFramesNoAlgo.Text = framesnoalgo.ToString();
+                });
             }
-
-            framesnoalgo++;
-            c += restPacketSize;
-
-            kbsentcomp += a / 1024;
-            kbsentuncomp += b / 1024;
-            secondstook += (float)ms / 1000f;
-            compratio = ((kbsentuncomp - kbsentcomp) / kbsentuncomp) * 100f;
-
-            withoutalgo += c / 1024;
-            effiratio = 100 - (kbsentcomp / withoutalgo) * 100f;
-            
-            this.safeInvoke((t =>
-            {
-                t.lblFrames.Text = frames.ToString();
-                t.lblComp.Text = kbsentcomp.ToString();
-                t.lblUncomp.Text = kbsentuncomp.ToString();
-                t.lblSeconds.Text = secondstook.ToString();
-                t.lblCompRatio.Text = compratio + "%";
-                t.lblEfficRatio.Text = effiratio + "%";
-                t.lblNoAlgo.Text = withoutalgo.ToString();
-                t.lblFramesNoAlgo.Text = framesnoalgo.ToString();
-            }));
         }
 
         private void BeginAccept_Callback(IAsyncResult ar)
@@ -163,11 +194,15 @@ namespace Server
 
                         if (bounds != Rectangle.Empty)
                         {
-                            pcbFrame.Image = (Bitmap) imageChanged.Clone();
-                            this.Invoke((MethodInvoker) delegate
+                            if (cbLastFrame.Checked)
                             {
-                                lblPercentOfIm.Text = SCD.PercentOfImage + "%";
-                            });
+                                pcbFrame.Image = (Bitmap) imageChanged.Clone();
+
+                                lblPercentOfIm.SafeInvoke(p =>
+                                {
+                                    p.Text = SCD.PercentOfImage + "%";
+                                });
+                            }
 
                             byte[] imageDATA = imageChanged.ToByteArray(ImageFormat.Jpeg);
                             byte[] compImage = LZ4mm.LZ4Codec.Encode32(imageDATA, 0, imageDATA.Length);
@@ -189,7 +224,7 @@ namespace Server
 
                             UpdateStats(true, (float) compImage.Length, (float) imageDATA.Length,
                                 timeProcessed.ElapsedMilliseconds, newIMdata.Length);
-                            Log("Screen Sent Size Uncomp: " + (imageDATA.Length/1024) + "KB Comp: " +
+                            Log("Frame Sent Size Uncomp: " + (imageDATA.Length/1024) + "KB Comp: " +
                                 (compImage.Length/1024) + " KB MS: " +
                                 timeProcessed.ElapsedMilliseconds + " Rate: " +
                                 (((float) imageDATA.Length - (float) compImage.Length)/(float) imageDATA.Length)*100f +
@@ -197,9 +232,8 @@ namespace Server
                         }
                         else
                         {
-                            SCD.Reset();
                             UpdateStats(false, 0, 0, 0, newIMdata.Length);
-                            Log("No Change Detected No Screen Sent");
+                            Log("No Change Detected No Frame Sent");
                         }
                     }
                     else
@@ -234,12 +268,22 @@ namespace Server
 
         private void Log(string text)
         {
-            txtLogs.safeInvoke(t =>
+            if (cbLogs.Checked)
             {
-                t.Text += text + Environment.NewLine;
-                t.SelectionStart = txtLogs.TextLength;
-                t.ScrollToCaret();
-            });
+                txtLogs.SafeInvoke(t =>
+                {
+                    if (t.Lines.Count() > 400)
+                    {
+                        string[] lines = t.Lines;
+                        var newLines = lines.Skip(200);
+                        t.Lines = newLines.ToArray();
+                    }
+
+                    t.Text += text + Environment.NewLine;
+                    t.SelectionStart = t.TextLength;
+                    t.ScrollToCaret();
+                });
+            }
         }
 
         public frmServer()
@@ -316,6 +360,11 @@ namespace Server
             {
                 Log("Screen Change Detection Algorithm Deactivated.");
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtLogs.Text = String.Empty;
         }
     }
 }
