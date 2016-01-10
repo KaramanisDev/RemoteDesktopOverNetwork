@@ -72,8 +72,15 @@
             this.cbLogs = new System.Windows.Forms.CheckBox();
             this.cbLastFrame = new System.Windows.Forms.CheckBox();
             this.btnClear = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.lblGithubLink = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFrame)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDelay)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStart
@@ -316,7 +323,7 @@
             this.tbDelay.Location = new System.Drawing.Point(377, 66);
             this.tbDelay.Maximum = 6000;
             this.tbDelay.Name = "tbDelay";
-            this.tbDelay.Size = new System.Drawing.Size(202, 45);
+            this.tbDelay.Size = new System.Drawing.Size(207, 45);
             this.tbDelay.TabIndex = 28;
             this.tbDelay.TickFrequency = 250;
             this.tbDelay.ValueChanged += new System.EventHandler(this.tbDelay_ValueChanged);
@@ -447,7 +454,7 @@
             this.cbAlgorithm.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbAlgorithm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAlgorithm.ForeColor = System.Drawing.Color.Black;
-            this.cbAlgorithm.Location = new System.Drawing.Point(445, 104);
+            this.cbAlgorithm.Location = new System.Drawing.Point(450, 104);
             this.cbAlgorithm.Name = "cbAlgorithm";
             this.cbAlgorithm.Size = new System.Drawing.Size(134, 20);
             this.cbAlgorithm.TabIndex = 42;
@@ -507,11 +514,64 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator2,
+            this.toolStripLabel1,
+            this.toolStripSeparator1,
+            this.toolStripLabel2,
+            this.lblGithubLink});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 552);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(591, 25);
+            this.toolStrip1.TabIndex = 47;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(108, 22);
+            this.toolStripLabel1.Text = "Ilias Karamanis";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(103, 22);
+            this.toolStripLabel2.Text = "Github Profile:";
+            // 
+            // lblGithubLink
+            // 
+            this.lblGithubLink.Font = new System.Drawing.Font("Segoe UI", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblGithubLink.ForeColor = System.Drawing.Color.Maroon;
+            this.lblGithubLink.IsLink = true;
+            this.lblGithubLink.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
+            this.lblGithubLink.LinkColor = System.Drawing.Color.Maroon;
+            this.lblGithubLink.Name = "lblGithubLink";
+            this.lblGithubLink.Size = new System.Drawing.Size(168, 22);
+            this.lblGithubLink.Text = "https://github.com/Hli4S";
+            this.lblGithubLink.Click += new System.EventHandler(this.lblGithubLink_Click);
+            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 556);
+            this.ClientSize = new System.Drawing.Size(591, 577);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.cbLastFrame);
             this.Controls.Add(this.cbLogs);
@@ -558,11 +618,14 @@
             this.Controls.Add(this.label20);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(607, 616);
             this.Name = "frmServer";
             this.Text = "Server : RemotePresentationOverNetwork";
             this.Load += new System.EventHandler(this.frmServer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbFrame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDelay)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -614,6 +677,12 @@
         private System.Windows.Forms.CheckBox cbLogs;
         private System.Windows.Forms.CheckBox cbLastFrame;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripLabel lblGithubLink;
     }
 }
 

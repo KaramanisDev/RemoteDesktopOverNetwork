@@ -181,5 +181,10 @@ namespace Client
         {
             Connect(false);
         }
+
+        private void lblGithubLink_Click(object sender, EventArgs e)
+        {
+            Process.Start(lblGithubLink.Text);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using RPON;
@@ -50,6 +51,11 @@ namespace Test
             SCD = new ScreenChangeDetect(this,oldIm);
             Bitmap imageChanged = SCD.Check(newIm, ref rect);
             picBox.Image = (Bitmap)imageChanged.Clone();
+        }
+
+        private void lblGithubLink_Click(object sender, EventArgs e)
+        {
+            Process.Start(lblGithubLink.Text);
         }
     }
 }

@@ -37,7 +37,14 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.picBox = new System.Windows.Forms.PictureBox();
             this.txtLogs = new System.Windows.Forms.TextBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.lblGithubLink = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSelect1
@@ -123,11 +130,65 @@
             this.txtLogs.Size = new System.Drawing.Size(255, 171);
             this.txtLogs.TabIndex = 8;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator2,
+            this.toolStripLabel1,
+            this.toolStripSeparator1,
+            this.toolStripLabel2,
+            this.lblGithubLink});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 301);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(506, 25);
+            this.toolStrip1.TabIndex = 49;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(108, 22);
+            this.toolStripLabel1.Text = "Ilias Karamanis";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(103, 22);
+            this.toolStripLabel2.Text = "Github Profile:";
+            // 
+            // lblGithubLink
+            // 
+            this.lblGithubLink.Font = new System.Drawing.Font("Segoe UI", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblGithubLink.ForeColor = System.Drawing.Color.Maroon;
+            this.lblGithubLink.IsLink = true;
+            this.lblGithubLink.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
+            this.lblGithubLink.LinkColor = System.Drawing.Color.Maroon;
+            this.lblGithubLink.Name = "lblGithubLink";
+            this.lblGithubLink.Size = new System.Drawing.Size(168, 22);
+            this.lblGithubLink.Text = "https://github.com/Hli4S";
+            this.lblGithubLink.Click += new System.EventHandler(this.lblGithubLink_Click);
+            // 
             // frmTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 308);
+            this.ClientSize = new System.Drawing.Size(506, 326);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.txtLogs);
             this.Controls.Add(this.picBox);
             this.Controls.Add(this.btnStart);
@@ -137,9 +198,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSelect2);
             this.Controls.Add(this.btnSelect1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(522, 365);
             this.Name = "frmTest";
-            this.Text = "Test";
+            this.Text = "Test Algorithm";
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,6 +221,12 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.PictureBox picBox;
         private System.Windows.Forms.TextBox txtLogs;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripLabel lblGithubLink;
     }
 }
 
