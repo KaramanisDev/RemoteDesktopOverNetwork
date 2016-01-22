@@ -72,15 +72,19 @@
             this.cbLogs = new System.Windows.Forms.CheckBox();
             this.cbLastFrame = new System.Windows.Forms.CheckBox();
             this.btnClear = new System.Windows.Forms.Button();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsCredits = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.lblGithubLink = new System.Windows.Forms.ToolStripLabel();
+            this.lblPacketDrop = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbPacketDrop = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.pcbFrame)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDelay)).BeginInit();
-            this.toolStrip1.SuspendLayout();
+            this.tsCredits.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbPacketDrop)).BeginInit();
             this.SuspendLayout();
             // 
             // btnStart
@@ -182,7 +186,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 136);
+            this.label7.Location = new System.Drawing.Point(4, 148);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(271, 13);
             this.label7.TabIndex = 11;
@@ -191,7 +195,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 159);
+            this.label8.Location = new System.Drawing.Point(14, 171);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 13);
             this.label8.TabIndex = 12;
@@ -200,7 +204,7 @@
             // lblFrames
             // 
             this.lblFrames.AutoSize = true;
-            this.lblFrames.Location = new System.Drawing.Point(98, 159);
+            this.lblFrames.Location = new System.Drawing.Point(98, 171);
             this.lblFrames.Name = "lblFrames";
             this.lblFrames.Size = new System.Drawing.Size(13, 13);
             this.lblFrames.TabIndex = 13;
@@ -209,7 +213,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(14, 181);
+            this.label9.Location = new System.Drawing.Point(14, 193);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 13);
             this.label9.TabIndex = 14;
@@ -218,7 +222,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(14, 204);
+            this.label10.Location = new System.Drawing.Point(14, 216);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(70, 13);
             this.label10.TabIndex = 15;
@@ -227,7 +231,7 @@
             // lblUncomp
             // 
             this.lblUncomp.AutoSize = true;
-            this.lblUncomp.Location = new System.Drawing.Point(98, 181);
+            this.lblUncomp.Location = new System.Drawing.Point(98, 193);
             this.lblUncomp.Name = "lblUncomp";
             this.lblUncomp.Size = new System.Drawing.Size(13, 13);
             this.lblUncomp.TabIndex = 16;
@@ -236,7 +240,7 @@
             // lblComp
             // 
             this.lblComp.AutoSize = true;
-            this.lblComp.Location = new System.Drawing.Point(98, 204);
+            this.lblComp.Location = new System.Drawing.Point(98, 216);
             this.lblComp.Name = "lblComp";
             this.lblComp.Size = new System.Drawing.Size(13, 13);
             this.lblComp.TabIndex = 17;
@@ -245,7 +249,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(286, 136);
+            this.label12.Location = new System.Drawing.Point(286, 148);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(301, 13);
             this.label12.TabIndex = 19;
@@ -254,7 +258,7 @@
             // pcbFrame
             // 
             this.pcbFrame.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcbFrame.Location = new System.Drawing.Point(297, 153);
+            this.pcbFrame.Location = new System.Drawing.Point(297, 165);
             this.pcbFrame.Name = "pcbFrame";
             this.pcbFrame.Size = new System.Drawing.Size(282, 166);
             this.pcbFrame.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -264,7 +268,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(4, 364);
+            this.label14.Location = new System.Drawing.Point(4, 376);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(583, 13);
             this.label14.TabIndex = 22;
@@ -274,7 +278,7 @@
             // lblCompRatio
             // 
             this.lblCompRatio.AutoSize = true;
-            this.lblCompRatio.Location = new System.Drawing.Point(98, 226);
+            this.lblCompRatio.Location = new System.Drawing.Point(98, 238);
             this.lblCompRatio.Name = "lblCompRatio";
             this.lblCompRatio.Size = new System.Drawing.Size(21, 13);
             this.lblCompRatio.TabIndex = 24;
@@ -283,7 +287,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(14, 226);
+            this.label16.Location = new System.Drawing.Point(14, 238);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(76, 13);
             this.label16.TabIndex = 23;
@@ -291,7 +295,7 @@
             // 
             // txtLogs
             // 
-            this.txtLogs.Location = new System.Drawing.Point(13, 381);
+            this.txtLogs.Location = new System.Drawing.Point(13, 393);
             this.txtLogs.Multiline = true;
             this.txtLogs.Name = "txtLogs";
             this.txtLogs.ReadOnly = true;
@@ -302,7 +306,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(14, 248);
+            this.label15.Location = new System.Drawing.Point(14, 260);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(75, 13);
             this.label15.TabIndex = 26;
@@ -311,7 +315,7 @@
             // lblSeconds
             // 
             this.lblSeconds.AutoSize = true;
-            this.lblSeconds.Location = new System.Drawing.Point(98, 248);
+            this.lblSeconds.Location = new System.Drawing.Point(98, 260);
             this.lblSeconds.Name = "lblSeconds";
             this.lblSeconds.Size = new System.Drawing.Size(18, 13);
             this.lblSeconds.TabIndex = 27;
@@ -320,7 +324,7 @@
             // tbDelay
             // 
             this.tbDelay.LargeChange = 100;
-            this.tbDelay.Location = new System.Drawing.Point(377, 66);
+            this.tbDelay.Location = new System.Drawing.Point(377, 67);
             this.tbDelay.Maximum = 6000;
             this.tbDelay.Name = "tbDelay";
             this.tbDelay.Size = new System.Drawing.Size(207, 45);
@@ -331,7 +335,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(294, 77);
+            this.label5.Location = new System.Drawing.Point(294, 78);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 29;
@@ -340,7 +344,7 @@
             // lblDelay
             // 
             this.lblDelay.AutoSize = true;
-            this.lblDelay.Location = new System.Drawing.Point(350, 77);
+            this.lblDelay.Location = new System.Drawing.Point(350, 78);
             this.lblDelay.Name = "lblDelay";
             this.lblDelay.Size = new System.Drawing.Size(13, 13);
             this.lblDelay.TabIndex = 30;
@@ -349,7 +353,7 @@
             // lblNoAlgo
             // 
             this.lblNoAlgo.AutoSize = true;
-            this.lblNoAlgo.Location = new System.Drawing.Point(130, 281);
+            this.lblNoAlgo.Location = new System.Drawing.Point(130, 293);
             this.lblNoAlgo.Name = "lblNoAlgo";
             this.lblNoAlgo.Size = new System.Drawing.Size(13, 13);
             this.lblNoAlgo.TabIndex = 32;
@@ -358,7 +362,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(14, 281);
+            this.label18.Location = new System.Drawing.Point(14, 293);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(97, 13);
             this.label18.TabIndex = 31;
@@ -367,7 +371,7 @@
             // lblEfficRatio
             // 
             this.lblEfficRatio.AutoSize = true;
-            this.lblEfficRatio.Location = new System.Drawing.Point(130, 303);
+            this.lblEfficRatio.Location = new System.Drawing.Point(130, 315);
             this.lblEfficRatio.Name = "lblEfficRatio";
             this.lblEfficRatio.Size = new System.Drawing.Size(21, 13);
             this.lblEfficRatio.TabIndex = 34;
@@ -376,7 +380,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(14, 303);
+            this.label19.Location = new System.Drawing.Point(14, 315);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(84, 13);
             this.label19.TabIndex = 33;
@@ -385,7 +389,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(4, 259);
+            this.label20.Location = new System.Drawing.Point(4, 271);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(271, 13);
             this.label20.TabIndex = 35;
@@ -404,7 +408,7 @@
             // lblPercentOfIm
             // 
             this.lblPercentOfIm.AutoSize = true;
-            this.lblPercentOfIm.Location = new System.Drawing.Point(404, 324);
+            this.lblPercentOfIm.Location = new System.Drawing.Point(404, 336);
             this.lblPercentOfIm.Name = "lblPercentOfIm";
             this.lblPercentOfIm.Size = new System.Drawing.Size(21, 13);
             this.lblPercentOfIm.TabIndex = 38;
@@ -413,7 +417,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(305, 324);
+            this.label21.Location = new System.Drawing.Point(305, 336);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(93, 13);
             this.label21.TabIndex = 37;
@@ -422,7 +426,7 @@
             // lblFramesNoAlgo
             // 
             this.lblFramesNoAlgo.AutoSize = true;
-            this.lblFramesNoAlgo.Location = new System.Drawing.Point(130, 324);
+            this.lblFramesNoAlgo.Location = new System.Drawing.Point(130, 336);
             this.lblFramesNoAlgo.Name = "lblFramesNoAlgo";
             this.lblFramesNoAlgo.Size = new System.Drawing.Size(13, 13);
             this.lblFramesNoAlgo.TabIndex = 40;
@@ -431,7 +435,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(14, 324);
+            this.label22.Location = new System.Drawing.Point(14, 336);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(112, 13);
             this.label22.TabIndex = 39;
@@ -439,7 +443,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(216, 124);
+            this.btnReset.Location = new System.Drawing.Point(216, 136);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(55, 22);
             this.btnReset.TabIndex = 41;
@@ -454,7 +458,7 @@
             this.cbAlgorithm.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbAlgorithm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAlgorithm.ForeColor = System.Drawing.Color.Black;
-            this.cbAlgorithm.Location = new System.Drawing.Point(450, 104);
+            this.cbAlgorithm.Location = new System.Drawing.Point(15, 108);
             this.cbAlgorithm.Name = "cbAlgorithm";
             this.cbAlgorithm.Size = new System.Drawing.Size(134, 20);
             this.cbAlgorithm.TabIndex = 42;
@@ -469,7 +473,7 @@
             this.cbStats.Checked = true;
             this.cbStats.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cbStats.Location = new System.Drawing.Point(7, 124);
+            this.cbStats.Location = new System.Drawing.Point(7, 136);
             this.cbStats.Name = "cbStats";
             this.cbStats.Size = new System.Drawing.Size(97, 24);
             this.cbStats.TabIndex = 43;
@@ -483,7 +487,7 @@
             this.cbLogs.Checked = true;
             this.cbLogs.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cbLogs.Location = new System.Drawing.Point(7, 352);
+            this.cbLogs.Location = new System.Drawing.Point(7, 364);
             this.cbLogs.Name = "cbLogs";
             this.cbLogs.Size = new System.Drawing.Size(116, 24);
             this.cbLogs.TabIndex = 44;
@@ -497,7 +501,7 @@
             this.cbLastFrame.Checked = true;
             this.cbLastFrame.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbLastFrame.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cbLastFrame.Location = new System.Drawing.Point(289, 124);
+            this.cbLastFrame.Location = new System.Drawing.Point(289, 136);
             this.cbLastFrame.Name = "cbLastFrame";
             this.cbLastFrame.Size = new System.Drawing.Size(147, 24);
             this.cbLastFrame.TabIndex = 45;
@@ -506,7 +510,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(524, 352);
+            this.btnClear.Location = new System.Drawing.Point(524, 364);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(55, 22);
             this.btnClear.TabIndex = 46;
@@ -514,21 +518,21 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // toolStrip1
+            // tsCredits
             // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsCredits.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tsCredits.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.tsCredits.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator2,
             this.toolStripLabel1,
             this.toolStripSeparator1,
             this.toolStripLabel2,
             this.lblGithubLink});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 552);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(591, 25);
-            this.toolStrip1.TabIndex = 47;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tsCredits.Location = new System.Drawing.Point(0, 564);
+            this.tsCredits.Name = "tsCredits";
+            this.tsCredits.Size = new System.Drawing.Size(591, 25);
+            this.tsCredits.TabIndex = 47;
+            this.tsCredits.Text = "toolStrip1";
             // 
             // toolStripSeparator2
             // 
@@ -566,12 +570,44 @@
             this.lblGithubLink.Text = "https://github.com/Hli4S";
             this.lblGithubLink.Click += new System.EventHandler(this.lblGithubLink_Click);
             // 
+            // lblPacketDrop
+            // 
+            this.lblPacketDrop.AutoSize = true;
+            this.lblPacketDrop.Location = new System.Drawing.Point(421, 108);
+            this.lblPacketDrop.Name = "lblPacketDrop";
+            this.lblPacketDrop.Size = new System.Drawing.Size(21, 13);
+            this.lblPacketDrop.TabIndex = 51;
+            this.lblPacketDrop.Text = "0%";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(294, 108);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(121, 13);
+            this.label11.TabIndex = 50;
+            this.label11.Text = "Packet Drop Simulation:";
+            // 
+            // tbPacketDrop
+            // 
+            this.tbPacketDrop.LargeChange = 10;
+            this.tbPacketDrop.Location = new System.Drawing.Point(453, 98);
+            this.tbPacketDrop.Maximum = 100;
+            this.tbPacketDrop.Name = "tbPacketDrop";
+            this.tbPacketDrop.Size = new System.Drawing.Size(131, 45);
+            this.tbPacketDrop.TabIndex = 49;
+            this.tbPacketDrop.TickFrequency = 10;
+            this.tbPacketDrop.ValueChanged += new System.EventHandler(this.tbPacketDrop_ValueChanged);
+            // 
             // frmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 577);
-            this.Controls.Add(this.toolStrip1);
+            this.ClientSize = new System.Drawing.Size(591, 589);
+            this.Controls.Add(this.lblPacketDrop);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.tbPacketDrop);
+            this.Controls.Add(this.tsCredits);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.cbLastFrame);
             this.Controls.Add(this.cbLogs);
@@ -618,14 +654,15 @@
             this.Controls.Add(this.label20);
             this.DoubleBuffered = true;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(607, 616);
+            this.MaximumSize = new System.Drawing.Size(607, 628);
             this.Name = "frmServer";
             this.Text = "Server : RemotePresentationOverNetwork";
             this.Load += new System.EventHandler(this.frmServer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbFrame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDelay)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tsCredits.ResumeLayout(false);
+            this.tsCredits.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbPacketDrop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -677,12 +714,15 @@
         private System.Windows.Forms.CheckBox cbLogs;
         private System.Windows.Forms.CheckBox cbLastFrame;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tsCredits;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripLabel lblGithubLink;
+        private System.Windows.Forms.Label lblPacketDrop;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TrackBar tbPacketDrop;
     }
 }
 

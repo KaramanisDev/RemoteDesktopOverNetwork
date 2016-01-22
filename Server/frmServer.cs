@@ -248,18 +248,26 @@ namespace Server
                         Log("Full Screen Sent Size: " + (newIMdata.Length/1024) + " KB.");
                     }
 
-                    byte[] Packet = DT.Serialize();
-                    byte[] PacketSize = BitConverter.GetBytes(Packet.Length);
+                    Random rnd = new Random();
+                    int rndNum = rnd.Next(1, 101);
+                    if (rndNum <= int.Parse(lblPacketDrop.Text.TrimEnd('%')))
+                    {
+                        Log("Last Packet Dropped Failed to Sent.");
+                    }
+                    else
+                    {
+                        byte[] Packet = DT.Serialize();
+                        byte[] PacketSize = BitConverter.GetBytes(Packet.Length);
 
-                    withClient.Send(PacketSize);
-                    withClient.Send(Packet);
-
+                        withClient.Send(PacketSize);
+                        withClient.Send(Packet);
+                    }
                     timeProcessed.Stop();
                 }
             }
             catch (Exception ex)
             {
-                //Log("Exception Thrown: " + ex.Message);
+                Log("Exception Thrown: " + ex.Message);
                 ClientConnect(false);
             }
             if (withClient != null && ServerSocket != null)
@@ -272,10 +280,10 @@ namespace Server
             {
                 txtLogs.SafeInvoke(t =>
                 {
-                    if (t.Lines.Count() > 400)
+                    if (t.Lines.Count() >  500)
                     {
                         string[] lines = t.Lines;
-                        var newLines = lines.Skip(200);
+                        var newLines = lines.Skip(150);
                         t.Lines = newLines.ToArray();
                     }
 
@@ -370,6 +378,11 @@ namespace Server
         private void lblGithubLink_Click(object sender, EventArgs e)
         {
             Process.Start(lblGithubLink.Text);
+        }
+
+        private void tbPacketDrop_ValueChanged(object sender, EventArgs e)
+        {
+            lblPacketDrop.Text = tbPacketDrop.Value + "%";
         }
     }
 }

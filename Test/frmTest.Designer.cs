@@ -37,14 +37,14 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.picBox = new System.Windows.Forms.PictureBox();
             this.txtLogs = new System.Windows.Forms.TextBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsCredits = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.lblGithubLink = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
-            this.toolStrip1.SuspendLayout();
+            this.tsCredits.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSelect1
@@ -130,22 +130,22 @@
             this.txtLogs.Size = new System.Drawing.Size(255, 171);
             this.txtLogs.TabIndex = 8;
             // 
-            // toolStrip1
+            // tsCredits
             // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsCredits.BackColor = System.Drawing.SystemColors.Control;
+            this.tsCredits.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tsCredits.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.tsCredits.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator2,
             this.toolStripLabel1,
             this.toolStripSeparator1,
             this.toolStripLabel2,
             this.lblGithubLink});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 301);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(506, 25);
-            this.toolStrip1.TabIndex = 49;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tsCredits.Location = new System.Drawing.Point(0, 301);
+            this.tsCredits.Name = "tsCredits";
+            this.tsCredits.Size = new System.Drawing.Size(506, 25);
+            this.tsCredits.TabIndex = 49;
+            this.tsCredits.Text = "toolStrip1";
             // 
             // toolStripSeparator2
             // 
@@ -188,7 +188,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(506, 326);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tsCredits);
             this.Controls.Add(this.txtLogs);
             this.Controls.Add(this.picBox);
             this.Controls.Add(this.btnStart);
@@ -203,8 +203,8 @@
             this.Name = "frmTest";
             this.Text = "Test Algorithm";
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tsCredits.ResumeLayout(false);
+            this.tsCredits.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,7 +221,7 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.PictureBox picBox;
         private System.Windows.Forms.TextBox txtLogs;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tsCredits;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
