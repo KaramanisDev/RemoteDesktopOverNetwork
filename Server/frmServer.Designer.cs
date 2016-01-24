@@ -166,7 +166,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(294, 49);
+            this.label4.Location = new System.Drawing.Point(17, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 8;
@@ -177,7 +177,7 @@
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.ForeColor = System.Drawing.Color.Red;
-            this.lblStatus.Location = new System.Drawing.Point(385, 47);
+            this.lblStatus.Location = new System.Drawing.Point(108, 109);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(95, 16);
             this.lblStatus.TabIndex = 9;
@@ -324,7 +324,7 @@
             // tbDelay
             // 
             this.tbDelay.LargeChange = 100;
-            this.tbDelay.Location = new System.Drawing.Point(377, 67);
+            this.tbDelay.Location = new System.Drawing.Point(377, 43);
             this.tbDelay.Maximum = 6000;
             this.tbDelay.Name = "tbDelay";
             this.tbDelay.Size = new System.Drawing.Size(207, 45);
@@ -335,7 +335,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(294, 78);
+            this.label5.Location = new System.Drawing.Point(294, 50);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 29;
@@ -344,7 +344,7 @@
             // lblDelay
             // 
             this.lblDelay.AutoSize = true;
-            this.lblDelay.Location = new System.Drawing.Point(350, 78);
+            this.lblDelay.Location = new System.Drawing.Point(350, 50);
             this.lblDelay.Name = "lblDelay";
             this.lblDelay.Size = new System.Drawing.Size(13, 13);
             this.lblDelay.TabIndex = 30;
@@ -458,7 +458,7 @@
             this.cbAlgorithm.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbAlgorithm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAlgorithm.ForeColor = System.Drawing.Color.Black;
-            this.cbAlgorithm.Location = new System.Drawing.Point(15, 108);
+            this.cbAlgorithm.Location = new System.Drawing.Point(297, 106);
             this.cbAlgorithm.Name = "cbAlgorithm";
             this.cbAlgorithm.Size = new System.Drawing.Size(134, 20);
             this.cbAlgorithm.TabIndex = 42;
@@ -520,6 +520,7 @@
             // 
             // tsCredits
             // 
+            this.tsCredits.BackColor = System.Drawing.SystemColors.Control;
             this.tsCredits.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tsCredits.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsCredits.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -573,7 +574,7 @@
             // lblPacketDrop
             // 
             this.lblPacketDrop.AutoSize = true;
-            this.lblPacketDrop.Location = new System.Drawing.Point(421, 108);
+            this.lblPacketDrop.Location = new System.Drawing.Point(421, 80);
             this.lblPacketDrop.Name = "lblPacketDrop";
             this.lblPacketDrop.Size = new System.Drawing.Size(21, 13);
             this.lblPacketDrop.TabIndex = 51;
@@ -582,7 +583,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(294, 108);
+            this.label11.Location = new System.Drawing.Point(294, 80);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(121, 13);
             this.label11.TabIndex = 50;
@@ -591,7 +592,7 @@
             // tbPacketDrop
             // 
             this.tbPacketDrop.LargeChange = 10;
-            this.tbPacketDrop.Location = new System.Drawing.Point(453, 98);
+            this.tbPacketDrop.Location = new System.Drawing.Point(453, 74);
             this.tbPacketDrop.Maximum = 100;
             this.tbPacketDrop.Name = "tbPacketDrop";
             this.tbPacketDrop.Size = new System.Drawing.Size(131, 45);

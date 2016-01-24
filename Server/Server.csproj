@@ -49,20 +49,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LZ4">
-      <HintPath>..\Libraries\LZ4.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="LZ4cc">
-      <HintPath>..\Libraries\LZ4cc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="LZ4mm">
       <HintPath>..\Libraries\LZ4mm.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="LZ4pn">
-      <HintPath>..\Libraries\LZ4pn.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

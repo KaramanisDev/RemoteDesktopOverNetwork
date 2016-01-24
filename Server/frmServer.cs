@@ -267,7 +267,7 @@ namespace Server
             }
             catch (Exception ex)
             {
-                Log("Exception Thrown: " + ex.Message);
+                //Log("Exception Thrown: " + ex.Message);
                 ClientConnect(false);
             }
             if (withClient != null && ServerSocket != null)
