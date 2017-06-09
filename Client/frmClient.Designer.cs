@@ -183,8 +183,8 @@
             this.lblGithubLink.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
             this.lblGithubLink.LinkColor = System.Drawing.Color.Maroon;
             this.lblGithubLink.Name = "lblGithubLink";
-            this.lblGithubLink.Size = new System.Drawing.Size(168, 22);
-            this.lblGithubLink.Text = "https://github.com/Hli4S";
+            this.lblGithubLink.Size = new System.Drawing.Size(232, 22);
+            this.lblGithubLink.Text = "https://github.com/KaramanisWeb";
             this.lblGithubLink.Click += new System.EventHandler(this.lblGithubLink_Click);
             // 
             // frmClient
@@ -204,7 +204,7 @@
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.Name = "frmClient";
-            this.Text = "Client : RemotePresentationOverNetwork";
+            this.Text = "Client : RemoteDesktopOverNetwork";
             this.Load += new System.EventHandler(this.frmClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tsCredits.ResumeLayout(false);

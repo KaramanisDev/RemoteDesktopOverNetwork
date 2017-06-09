@@ -179,8 +179,8 @@
             this.lblGithubLink.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
             this.lblGithubLink.LinkColor = System.Drawing.Color.Maroon;
             this.lblGithubLink.Name = "lblGithubLink";
-            this.lblGithubLink.Size = new System.Drawing.Size(168, 22);
-            this.lblGithubLink.Text = "https://github.com/Hli4S";
+            this.lblGithubLink.Size = new System.Drawing.Size(232, 22);
+            this.lblGithubLink.Text = "https://github.com/KaramanisWeb";
             this.lblGithubLink.Click += new System.EventHandler(this.lblGithubLink_Click);
             // 
             // frmTest

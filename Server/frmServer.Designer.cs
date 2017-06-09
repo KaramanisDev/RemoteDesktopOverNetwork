@@ -567,8 +567,8 @@
             this.lblGithubLink.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
             this.lblGithubLink.LinkColor = System.Drawing.Color.Maroon;
             this.lblGithubLink.Name = "lblGithubLink";
-            this.lblGithubLink.Size = new System.Drawing.Size(168, 22);
-            this.lblGithubLink.Text = "https://github.com/Hli4S";
+            this.lblGithubLink.Size = new System.Drawing.Size(232, 22);
+            this.lblGithubLink.Text = "https://github.com/KaramanisWeb";
             this.lblGithubLink.Click += new System.EventHandler(this.lblGithubLink_Click);
             // 
             // lblPacketDrop
@@ -657,7 +657,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(607, 628);
             this.Name = "frmServer";
-            this.Text = "Server : RemotePresentationOverNetwork";
+            this.Text = "Server : RemoteDesktopOverNetwork";
             this.Load += new System.EventHandler(this.frmServer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbFrame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbDelay)).EndInit();
