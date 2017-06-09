@@ -1,6 +1,7 @@
-# RemotePresentationOverNetwork
-Application written in C# for Remote Presentation Over Network
+# RemoteDesktopOverNetwork
+Application written in C# for Remote Desktop Over Network
 
+This was a project for a lesson at my University that takes advantage of some algorithms that will help for faster & a better way to share the desktop over the network from one user to another. Also, it captures logs, statistics, the last frame sent and you have the option to emulate a frame delay & drop.
 
 Big Thanks to:
   - LZ4 Compression: https://github.com/MiloszKrajewski/lz4net
